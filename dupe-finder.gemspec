@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Andrew"]
   spec.email         = ["andrewstewis@gmail.com"]
 
-  spec.summary       = "Lists the duplicate files found within a directory"
-  spec.description   = "When given a path to search, dupe-finder will print out duplicate files grouped together"
+  spec.summary       = %q{Lists the duplicate files found within a directory}
+  spec.description   = %q{When given a path to search, dupe-finder will print out duplicate files grouped together}
   spec.homepage      = "https://github.com/Satook/dupe-finder"
   spec.license       = "MIT"
 
@@ -21,7 +21,6 @@ Gem::Specification.new do |spec|
 
     spec.metadata["homepage_uri"] = spec.homepage
     spec.metadata["source_code_uri"] = "https://github.com/Satook/dupe-finder.git"
-    spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
