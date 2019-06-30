@@ -32,7 +32,4 @@ dupe-finder --help
 
 ## design
 
-The program runs in 2 phases, a hashing phase and a checking phase and a duplicate check phase.
-
-Whilst running, a temporary directory is used to store hash results and found duplicates. This
-is done to avoid running out of memory on larger data sets.
+See docs/breakdown.md for more info.
