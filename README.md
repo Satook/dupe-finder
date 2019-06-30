@@ -4,7 +4,7 @@ This program can search a directory and print the paths of files that have dupli
 
 ## install
 
-'Note:' This program was written and tested against Ruby 2.6.3, it may or may not work with other versions.
+**Note:** This program was written and tested against Ruby 2.6.3, it may or may not work with other versions.
 
 To install this app straight from github, you can use specific_install
 
