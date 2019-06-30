@@ -9,3 +9,9 @@
 
 # rspec failure tracking
 .rspec_status
+
+# client test files
+cust-files
+
+# asdf tools version
+.tool-versions
