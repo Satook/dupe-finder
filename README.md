@@ -1,10 +1,8 @@
-dupe-finder
-===============
+# dupe-finder
 
 This program can search a directory and print the paths of files that have duplicates.
 
-install
-----------
+## install
 
 'Note:' This program was written and tested against Ruby 2.6.3, it may or may not work with other versions.
 
@@ -16,8 +14,7 @@ gem install specific_install
 gem specific_install -l http://github.com/Satook/dupe-finder.git
 ```
 
-usage
-----------
+## usage
 
 Example of searching all files in `mypics` for duplicates:
 
@@ -33,8 +30,7 @@ To see all options and help descriptions use:
 dupe-finder --help
 ```
 
-design
-----------
+## design
 
 The program runs in 2 phases, a hashing phase and a checking phase and a duplicate check phase.
 
