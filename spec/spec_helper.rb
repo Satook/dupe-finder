@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "dupe/finder"
+require "dupe/args"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
