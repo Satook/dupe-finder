@@ -1,3 +1,18 @@
 #!/usr/bin/env ruby
 
+require "dupe/args"
 require "dupe/finder"
+require "dupe/hashstore"
+
+#
+# TODO: set up filters
+# get sequence of file paths
+
+# hash files
+# store hashes
+# let hash store sync
+#
+# iterate over (hash, [path]) pairs
+# set hash to ignored
+# print dupes
+#

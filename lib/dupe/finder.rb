@@ -45,19 +45,5 @@ module Dupe
       Digest::SHA2.new().file(path).digest
     end
 
-    #
-    # TODO: set up filters
-    # get sequence of file paths
-
-    #
-    # hash files
-    # store hashes
-    # let hash store sync
-    #
-    # iterate over (hash, [path]) pairs
-    # set hash to ignored
-    # print dupes
-    #
-
   end # module Dupe
 end # module Finder
