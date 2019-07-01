@@ -4,7 +4,7 @@ module Dupe
   module Args
     ##
     # Type used to collect command line arguments
-    Options = Struct.new(:memmax, :path)
+    Options = Struct.new(:memmax, :csv, :path)
 
     ##
     # parses arguments from `options`
@@ -13,7 +13,7 @@ module Dupe
     #
 
     def Args.parse(options)
-      args = Options.new("world")
+      args = Options.new(100, false)
 
       opt_parser = OptionParser.new do |opts|
         opts.banner = "Usage: dupe-finder [options] SEARCHDIR"
@@ -25,6 +25,10 @@ module Dupe
           end
 
           args.memmax = m
+        end
+
+        opts.on("-c", "--csv", "Print groups of duplicates on a single line") do
+          args.csv = true
         end
 
         opts.on("-h", "--help", "Prints help") do

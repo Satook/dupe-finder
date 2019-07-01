@@ -7,4 +7,7 @@ RSpec.describe Dupe::Args do
     expect(Dupe::Args::parse(['-m','100', '/']).memmax).to eq 100
   end
 
+  it "handles csv output" do
+    expect(Dupe::Args::parse(['-c', '/']).csv).to eq true
+  end
 end
