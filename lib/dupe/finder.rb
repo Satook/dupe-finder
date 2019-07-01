@@ -41,7 +41,7 @@ module Dupe
     # Calculates the SHA-256 digest of a file and returns it as a byte array
     #
 
-    def file_digest(path)
+    def Finder.file_digest(path)
       Digest::SHA2.new().file(path).digest
     end
 

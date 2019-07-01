@@ -29,6 +29,17 @@ RSpec.describe Dupe::Finder do
   end
 
   it "hashes files" do
+    Case = Struct.new(:path, :hexdigest)
+    base_path = "test-files/digest/"
+    test_files = [
+      Case.new("test1.txt", "3e62b4bd08faa9bce87955c15fd8e6152d12cfca6a3961e93ace96575156c8bf"),
+      Case.new("test2.txt", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855")
+    ].map { |x| Case.new(base_path + x.path, x.hexdigest) }
+
+    test_files.each do |x|
+      got = Dupe::Finder.file_digest(x.path).unpack('H*').first
+      expect(got).to eq(x.hexdigest)
+    end
 
   end
 end
