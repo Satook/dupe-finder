@@ -4,45 +4,45 @@ module Dupe
   module Args
     ##
     # Type used to collect command line arguments
-    Options = Struct.new(:memmax)
+    Options = Struct.new(:memmax, :path)
 
     ##
-    # Argument parsing for the main app
+    # parses arguments from `options`
+    # will exit 2 on --help
+    # will raise an ArgumentError if an argument is invalid
     #
 
-    class Parser
+    def Args.parse(options)
+      args = Options.new("world")
 
-      ##
-      # parses arguments from `options`
-      # will exit 2 on --help
-      # will raise an ArgumentError if an argument is invalid
-      #
+      opt_parser = OptionParser.new do |opts|
+        opts.banner = "Usage: dupe-finder [options] SEARCHDIR"
 
-      def self.parse(options)
-        args = Options.new("world")
+        opts.on("-nMEMTARGET", "--maxmem=MEM", Integer, "Max MB of memory used for storing file hash data. Minimum 10") do |m|
 
-        opt_parser = OptionParser.new do |opts|
-          opts.banner = "Usage: dupe-finder [options]"
-
-          opts.on("-mMEMTARGET", "--maxmem=MEM", Integer, "Max MB of memory used for storing file hash data. Minimum 10") do |m|
-
-            if m < 10
-              raise "MEMTARGET must be 10 or greater"
-            end
-
-            args.memmax = m
+          if m < 10
+            raise "MEMTARGET must be 10 or greater"
           end
 
-          opts.on("-h", "--help", "Prints this help") do
-            puts opts
-            exit 2
-          end
+          args.memmax = m
         end
 
-        opt_parser.parse!(options)
-        return args
+        opts.on("-h", "--help", "Prints help") do
+          puts opts
+          exit 2
+        end
       end
-    end # class Parser
+
+      rest = opt_parser.parse!(options)
+
+      args.path = rest.pop
+      if args.path === nil or !FileTest.directory?(args.path)
+        puts opt_parser
+        exit 2
+      end
+
+      args
+    end
 
   end # module Args
 end # module Dupe
