@@ -22,7 +22,7 @@ RSpec.describe Dupe::Finder do
     want = ["dir2/file3", "dir2/file4", "file1", "file2"]
       .map { |x| base_dir + "/" + x }
 
-    got = Dupe::Finder::interesting_files(base_dir).collect { |x| x }
+    got = Dupe::Finder::interesting_files(base_dir).map { |x| x }
 
     # the order is deterministic because the find module sorts its output
     expect(got).to eq(want)
