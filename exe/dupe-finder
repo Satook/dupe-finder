@@ -3,6 +3,7 @@
 require "dupe/args"
 require "dupe/finder"
 require "dupe/hashstore"
+require "dupe/textprinter"
 
 # parse args
 args = Dupe::Args::parse(ARGV)
@@ -10,6 +11,7 @@ args = Dupe::Args::parse(ARGV)
 # get sequence of file paths
 path_enum = Dupe::Finder::interesting_files(args.path)
 storage = Dupe::HashStore.new
+printer = Dupe::TextPrinter.new
 
 # hash files
 path_enum.each_entry do |path|
@@ -28,4 +30,5 @@ storage.each_pair do |digest,paths|
   end
 
   # we have a dupe, so print out the group
+  printer.print_dupes paths
 end

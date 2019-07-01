@@ -2,6 +2,7 @@ require "bundler/setup"
 require "dupe/finder"
 require "dupe/args"
 require "dupe/hashstore"
+require "dupe/textprinter"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
