@@ -21,7 +21,6 @@ module Dupe
       block_given? or return enum_for(__method__)
 
       @hashdict.each_pair do |k, v|
-        print k, v
         yield k, v
       end
     end
