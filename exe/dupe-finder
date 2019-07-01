@@ -4,15 +4,28 @@ require "dupe/args"
 require "dupe/finder"
 require "dupe/hashstore"
 
-#
-# TODO: set up filters
+# parse args
+args = Dupe::Args::parse(ARGV)
+
 # get sequence of file paths
+path_enum = Dupe::Finder::interesting_files(args.path)
+storage = Dupe::HashStore.new
 
 # hash files
-# store hashes
+path_enum.each_entry do |path|
+  digest = Dupe::Finder.file_digest(path)
+  storage.push(digest, path)
+end
+
 # let hash store sync
+storage.sync
+
 #
 # iterate over (hash, [path]) pairs
-# set hash to ignored
-# print dupes
-#
+storage.each_pair do |digest,paths|
+  if paths.count == 1
+    next
+  end
+
+  # we have a dupe, so print out the group
+end
