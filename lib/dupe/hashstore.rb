@@ -13,15 +13,11 @@ module Dupe
       @hashdict = Hash.new {|h,k| h[k] = []}
     end
 
-    def hashdict
-      @hashdict
-    end
-
     def push(hash, path)
       @hashdict[hash] << path
     end
 
-    def each_pair() # :yield: hash
+    def each_pair() # :yield: hash, paths
       block_given? or return enum_for(__method__)
 
       @hashdict.each_pair do |k, v|
