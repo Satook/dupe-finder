@@ -14,6 +14,18 @@ gem install specific_install
 gem specific_install -l http://github.com/Satook/dupe-finder.git
 ```
 
+To install from within checked out repo
+
+```
+rake install
+```
+
+To use this gem without installing use bundle exec. E.g:
+
+```
+bundle exec dupe-finder
+```
+
 ## usage
 
 Example of searching all files in `mypics` for duplicates:
