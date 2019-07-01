@@ -18,15 +18,6 @@ module Dupe
       opt_parser = OptionParser.new do |opts|
         opts.banner = "Usage: dupe-finder [options] SEARCHDIR"
 
-        opts.on("-nMEMTARGET", "--maxmem=MEM", Integer, "Max MB of memory used for storing file hash data. Minimum 10") do |m|
-
-          if m < 10
-            raise "MEMTARGET must be 10 or greater"
-          end
-
-          args.memmax = m
-        end
-
         opts.on("-c", "--csv", "Print groups of duplicates on a single line") do
           args.csv = true
         end
